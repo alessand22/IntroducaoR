@@ -35,7 +35,7 @@ knit_hooks$set(plot = function(x, options) {
 
 # Aspectos gerais do R
 
-O sítio ofical do R o R project (https://www.r-project.org/), onde possível encontrar inúmeras informações sobre o ambiente, literatura, contribuições em diversas formatos.
+No sítio oficial do R project  (https://www.r-project.org/), é possível encontrar inúmeras informações sobre o ambiente, literatura relacionada e contribuições em diversas formatos.
 
 ![Sítio oficial do R Project](./figuras/Rsite.png){ width=70% }
 
@@ -78,10 +78,10 @@ O GUI permite do usuário interaja com o programa; todavia, essa interação pod
 
 ## Para instalar o RStudio
 
-O RStudio é uma interface de desenvolvimento integrada (IDE) que atua conjudado com o R, facilitando as operações e integrações com outros recursos como o Rmardown. Possibilita desde o preenchimento automático de palavras (o que ajuda muito), criação de relatórios em HTML. PDF, Word e PowerPoint, e criação de novos pacotes.
+O RStudio é uma interface de desenvolvimento integrada (IDE) que atua conjudado com o R, facilitando as operações e integrações com outros recursos como o Rmardown. Possibilita desde o preenchimento automático de palavras (o que ajuda muito), a criação de relatórios em formatos como HTML, PDF, Word e PowerPoint, e a criação de novos pacotes.
 
 
-Para a sua intação, siga as instruções abaixo:
+Para a sua instalação, siga as instruções abaixo:
 
   1. No navegador escreva "rstudio download" que será exido o sítio para descarrear o executável de instalação ou utilize o endereço o seguinte endereço
 
@@ -630,11 +630,180 @@ x
 x[[2]]
 x[[2]][1]
 ```
+
+### tibbles
+
+A tibble são estruturas de dados que se parecem com data.frames, mas com recursos adicionais, constituindo uma evolução dos data frames para um apresentação mais amigável.
+
+Essa estrutura de dados pertence ao pacote tibble que, por sua vez, está incluso no populares pacotes tidyr e tidyverse. Na demonstração a seguir, caso ainda não tenha tenha sido instalado nenhum desses pacotes, será necessário instalar apenas o primeiro, `install.packages("tibble").
+
+As formas mais comuns de se criar tibbles são por meio da função `tibble()` e por conversão de um objeto com a função `as_tibble()`.
+
+```{r}
+library(tibble)
+
+tibble(
+  a = c(2,2,2),
+  b = c(1,2,3))
+
+df <- data.frame(
+  a = c(2,2,2),
+  b = c(1,2,3))
+
+
+class(df)
+tb <- as_tibble(df) # convertendo
+class(tb)
+```
+
+Pode-se observar que uma tibble é exibida com informações da classe da estrutura, tibble, as dimensões (no exemplo 3 linhas e 2 colunas), e os tipos das variáveis (chr e num).
+
+Como as tibbles são alternativas mais avançadas dos que os data frames, os demonstrações a seguir enfatizam as distições entras as estuturas de dados.
+
+As tibbles permitemtem que os nomes das colunas usem formatos não válidos no R, não precisam iniciar com letras, podem conter caracteres como o espaço, ou serem números, caso estejam escritas entre acentos agudos.
+
+Exite a altertiva de se utilizar o `tribble()` (*transposed tibble*) para se entrar com dados, com os nomes das variáveis no topo, definidas por "~" e as colunas de dados separadas por vírgulas.
+
+```{r}
+tb <- tibble(
+   `:)` = "sorria",
+   ` ` = "espaços",
+   `2020` = "um número")
+tb
+
+
+tribble(
+   ~Obs, ~a, ~b,
+   #--|--|----
+   "obs. 1", 2, 1,
+   "obs. 2", 2, 2,
+   "obs. 3", 2, 3
+ )
+```
+
+Uma outra vantagem muito interessante da tibble em relação ao data frame é que a primeira é criada senquencialmente, permitindo criar colunas com base em dados disponíveis em colunas anteriores, enquanto, no data frame, isso não é possível por ser criado em bloco, logo não é possível, num único passo, criar uma coluna com base em dados de colunas criadas na mesma função.
+
+```{r, eval=FALSE}
+data.frame(
+  a = c(2,2,2),
+  b = c(1,2,3),
+  soma = a+b)
+```
+
+```{r, echo=FALSE}
+cat("Error in data.frame(a = c(2, 2, 2), b = c(1, 2, 3), soma = a + b) : object 'a' not found")
+```
+
+
+Não foi possível executar a função porque a coluna `soma` exige dados em colunas ainda não criadas.
+
+Para inserir a terceiras coluna no data frame, é necessária uma etapa acidional.
+
+
+```{r}
+df <- data.frame(
+  a = c(2,2,2),
+  b = c(1,2,3))
+
+df$soma <- df$a+ df$b
+df
+```
+
+
+Já no caso da tibble, **a** e **b** são criadas antes da **soma**, permitindo a criação desta com base nas colunas criadas anteriormente.
+
+```{r}
+tibble(
+  a = c(2,2,2),
+  b = c(1,2,3),
+  soma = a+b)
+```
+
+
+
+Uma diferença marcante na exibição dos dados de uma tibble em relação aos data frames é a sua capacidade de ajustar ao console enquanto o data frame exibe todos os dados poluindo a janela quando há granda quantidade de observações. Para exmplificar, a diferença entre ambos, tome-se o banco de dados iris que disponível no R, que está originalmente armazenado em forma de data frame e exibi-lo também após ser convertido em tibble.
+
+O iris é um banco de dados com 150 observações e, para economizar espaço neste texto, serão exibidas somente as 20 primeiras, mas, no computador do usuário serão exibidas as 150 quando o data frame iris for chamado no console.
+
+```{r, eval=FALSE}
+data("iris")
+class(iris)
+iris
+```
+
+```{r, echo=FALSE}
+data("iris")
+class(iris)
+head(iris, n=20)
+```
+Após conversão em tibble, a exibição se limita a um máximo de 10 observações e com as colunas ajustadas ao console do usuário. A apresentação do número de oservações não exibidas vem no final.
+
+```{r}
+iristb <- as_tibble(iris) # conversão
+iristb
+```
+
+Algumas funções construídas para data frames podem não funcionar com tibbles e a razão está no fato de que, na maioria das vezes, o data frame retorna  vetores de dados numéricos ou alfanuméricos, quando são chamados, enquanto que uma tible retorna uma tibble na maioria das chamadas de dados, de modo que a estrutura de dados recebida pela função pode ser a esperada, conduzindo ao erro de execução.
+
+A seguir serão demonstradas as estruturas de dados retornados por data frames e tibbles conforme o tipo de chamada de dados. Primeiro são criados dois banco de dados no formato data frame e no formato tibble, depois, a coluna **a** é chamada de diversas maneiras e indicando a classe do respectivo retorno
+
+```{r}
+# data frame
+df <- data.frame(
+  a = c(2,2,2),
+  b = c(1,2,3))
+
+# tibble
+tb <- tibble(
+  a = c(2,2,2),
+  b = c(1,2,3))
+
+df
+tb
+
+df[,1]
+tb[,1]
+```
+
+
+A seguir, são demonstradas as chamadas de coluna de data frame que retornam vetores numéricos ou alfanuméricos.
+
+```{r}
+# Data frame retorna vetor
+class(df[,1]) # vetor numeric/sring
+class(df[["a"]]) # vetor numeric/sring
+```
+
+Agora as chamadas de coluna de data frame que retornam data frames.
+
+```{r}
+class(df["a"]) # data frame
+class(df[1]) #  data frame
+```
+
+A seguir, são demonstradas as chamadas de coluna de tibble que retornam tibble.
+
+```{r}
+class(tb[,1]) # retorna tibble
+class(tb[1]) #retorna tibble
+class(tb["a"]) #retorna tibble
+```
+
+Finalmente, as chamadas de coluna de tibble que retornam vetores numéricos ou alfanuméricos.
+
+```{r}
+class(tb[[1]]) # vetor numeric/string
+class(tb$a) # vetor numeric/string
+```
+
+
 # Importação e exportação de dados
 
 Dois aspectos importantes a serem observados na importação e exportação de dados são as características do banco de dados e a sua localização.
 
 Se os dados a serem importados estiverem no diretório de trabalho (*Working Directory*) ou se serão salvos nele, não há necessidade de informações adicionais e o arquivo pode ser chamado pelo nome, como **"arquivo.txt"**, do contrário, a sua localização deve ser indicada junto com seu nome, por exemplo, **"C:/usuarios/nome/pasta/arquivo.txt"**.
+
+Atenção para o Windows, utiliza barras investidas para indicar o caminho dos arquivos e diretórios. Logo, se o caminho for copiado do Windows, provavelmente, será colado **"C:\\usuarios\\nome\\pasta\\arquivo.txt"**, de forma que as barras precisam ser substitutídas por barras comuns ou utilizar barras investidas duplas: **"C:\\ \\ usuarios\\ \\  nome\\ \\ pasta\\ \\  arquivo.txt"** para que sejam interpretadas corretamente como caminho pelo R.
 
 Assim, sempre é prudente estar certo da localização de seus dados e de seu diretório de trabalho para não se perder tempo. Seu diretório de trabalho é exibido pelo seguinte comando `getwd()`.
 
@@ -644,7 +813,7 @@ Com relação às características dos dados, deve-se observar o tipo do de arqu
 
 ### Usando pacote readxl
 
-Uma maneira mais prática de imprtação de dados é utilizando o pacote **readxl** que permite importação de dados de dados armazenados em diversos formatos, em txt, Excel, SPSS, SAS e STATA.
+Uma maneira mais prática de importação de dados é por meio do pacote **readxl** que permite importação de dados de dados armazenados em txt, Excel, SPSS, SAS e STATA.
 
 Para importar dados em planilhas do Excel na janela, deve-se clicar na botão **Import Dataset**, na aba **Environment** localizada na janela superior direita do terminal do RStudio, e selionar **From Excel...**
 
@@ -652,7 +821,7 @@ Para importar dados em planilhas do Excel na janela, deve-se clicar na botão **
 ![Estruturas de dados em R](./figuras/importReadxl.png){ width=50% }
 <br>
 
-Um janela de naveção, é aberta para encontrar o arquivo e abri-lo. O exemlo buscamos o arquivo **aditivo.xlsx** que está no diretório de trabalho atual.
+Um janela de navegação é aberta para encontrar o arquivo e abri-lo. O exemplo buscamos o arquivo **aditivo.xlsx** que está no diretório de trabalho atual.
 
 
 O padrão (*default*) é a exibição dos dados da aba na posição 1 do Excel, no **Data Preview**. Pode ser observado que os dados são constitídos de duas colulas, na primeira linha estão os rótulos das variáveis, **aditivo**, identificada como texto (*character*), e **km** , identificada como numéricas (*double*). No **Data Preview**, pode-se visualizar até 50 observações.
@@ -680,7 +849,8 @@ O pacote pomite ainda realizar a importação por meio de código. a sintase da 
 read_excel("caminho do arquivo/arquivo.xlsx")
 ```
 
-A seguir um exemplo, primeiro supondo que o arquivo Excel está no diretório de trabalho, e sem a necessidade de escrever cominho; un segundo supondo que o arquivo está num subdiretório do diretório de trabalho; e um terceiro com o caminho completo do arquivo.
+A seguir são apresentados quatro exemplos, o primeiro supondo que o arquivo do nExcel está no diretório de trabalho, e, potanto, sem a necessidade de escrever cominho; o segundo supondo que o arquivo está num subdiretório do diretório de trabalho; o terceiro com o caminho completo do arquivo e o quarto, supondo que o arquivo esteja no diretório de trabalho, mas evidenciando alguns argumentos, como a posição da aba no Excel, no caso é a primeira (`sheet = 1`), que a primeira linha possui os nomes das variáveis (`col_names = TRUE`) e que os dados ausentes são indicados por céludas vazias (`na = ""`).
+
 
 ```{r, eval=FALSE}
 library(readxl)
@@ -690,6 +860,8 @@ aditivo1 <- read_excel("aditivo.xlsx")
 aditivo2 <- read_excel("dados/aditivo.xlsx")
 
 aditivo3 <- read_excel("C:/Users/aless/OneDrive/Documents/Mestrado/IntroducaoR/aditivo.xlsx")
+
+aditivo4 <- read_excel("aditivo.xlsx", sheet = 1, col_names = TRUE, na = "")
 ```
 
 
