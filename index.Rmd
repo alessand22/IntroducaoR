@@ -815,13 +815,13 @@ Com relação às características dos dados, deve-se observar o tipo do de arqu
 
 Uma maneira mais prática de importação de dados é por meio do pacote **readxl** que permite importação de dados de dados armazenados em txt, Excel, SPSS, SAS e STATA.
 
-Para importar dados em planilhas do Excel na janela, deve-se clicar na botão **Import Dataset**, na aba **Environment** localizada na janela superior direita do terminal do RStudio, e selionar **From Excel...**
+Para importar dados em planilhas do Excel na janela, deve-se clicar na botão **Import Dataset**, na aba **Environment** localizada na janela superior direita do terminal do RStudio, e selecionar **From Excel...**
 
 
 ![Estruturas de dados em R](./figuras/importReadxl.png){ width=50% }
 <br>
 
-Um janela de navegação é aberta para encontrar o arquivo e abri-lo. O exemplo buscamos o arquivo **aditivo.xlsx** que está no diretório de trabalho atual.
+Um janela de navegação é aberta para encontrar o arquivo e abri-lo. O exemplo buscamos o arquivo [ **aditivo.xlsx**](dados/aditivo.xlsx) que está no diretório de trabalho atual.
 
 
 O padrão (*default*) é a exibição dos dados da aba na posição 1 do Excel, no **Data Preview**. Pode ser observado que os dados são constitídos de duas colulas, na primeira linha estão os rótulos das variáveis, **aditivo**, identificada como texto (*character*), e **km** , identificada como numéricas (*double*). No **Data Preview**, pode-se visualizar até 50 observações.
