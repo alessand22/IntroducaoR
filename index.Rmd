@@ -897,7 +897,7 @@ No exemplo, os arquivo está no diretório de trabalho, cado esteja noutro diret
 ## importação de dados em arquivos .txt
 Para importar arquivos no formato **txt**, use o comando `read.table()`. Caso o arquivo tenha o nome das variável na primeira linha, acrescente o argumento `header=TRUE`, uma vez que o *default* é `FALSE`. Se o separador de decimais for a vírgula, não o ponto, como no padrão americano, deve-se acrescentar argumento `dec=","`.
 
-A seguir são importados os dados do arquivo **notas_AB.txt**](dados/notas_AB.txt):
+A seguir são importados os dados do arquivo [**notas_AB.txt**](dados/notas_AB.txt):
 
 
 ```{r, eval=FALSE}

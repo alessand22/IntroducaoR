@@ -1306,7 +1306,7 @@ div.tocify {
 <div id="importação-de-dados-em-arquivos-.txt" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> importação de dados em arquivos .txt</h2>
 <p>Para importar arquivos no formato <strong>txt</strong>, use o comando <code>read.table()</code>. Caso o arquivo tenha o nome das variável na primeira linha, acrescente o argumento <code>header=TRUE</code>, uma vez que o <em>default</em> é <code>FALSE</code>. Se o separador de decimais for a vírgula, não o ponto, como no padrão americano, deve-se acrescentar argumento <code>dec=&quot;,&quot;</code>.</p>
-<p>A seguir são importados os dados do arquivo <strong>notas_AB.txt</strong>](dados/notas_AB.txt):</p>
+<p>A seguir são importados os dados do arquivo <a href="dados/notas_AB.txt"><strong>notas_AB.txt</strong></a>:</p>
 <div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="#cb220-1" aria-hidden="true" tabindex="-1"></a>dados<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;notas_AB.txt&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">dec=</span><span class="st">&quot;,&quot;</span>)  <span class="co"># ler dados em txt</span></span>
 <span id="cb220-2"><a href="#cb220-2" aria-hidden="true" tabindex="-1"></a>dados</span></code></pre></div>
 </div>
