@@ -908,7 +908,7 @@ dados
 ## importação de dados em arquivos .csv
 Para importar arquivos no formato **csv** (*comma-separated values*), use o comando `read.csv()`. Caso o arquivo tenha os nomes das variável na primeira linha, não precisa acrescentar o argumento `header=TRUE`, já que esse é o *default*. Se o seperador de decimais for a vírgula, e não o ponto, como no padrão americano, deve-se acrescentar argumento `dec=","`.
 
-A seguir são importados os dados do arquivo **notas_AB.csv**](dados/notas_AB.csv):
+A seguir são importados os dados do arquivo [**notas_AB.csv**](dados/notas_AB.csv):
 
 ```{r, eval=FALSE}
 dados<-read.csv("notas_AB.csv", dec=",") # ler dados em csv

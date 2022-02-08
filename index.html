@@ -1296,7 +1296,7 @@ div.tocify {
 </div>
 <div id="importação-de-dados-no-formato-r-load" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> importação de dados no formato R: load</h2>
-<p>Para importar dados do R com as extensões <strong>.R</strong>, <strong>.rda</strong> ou <strong>.Rdata</strong>, basta utilizar o comando <code>load()</code>. Por exemplo para importar os dados do arquivo “desc_morettin.Rdata”.</p>
+<p>Para importar dados do R com as extensões <strong>.R</strong>, <strong>.rda</strong> ou <strong>.Rdata</strong>, basta utilizar o comando <code>load()</code>. Por exemplo para importar os dados do arquivo <a href="dados/desc_morettin.Rdata"><strong>desc_morettin.Rdata</strong></a>.</p>
 <div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;desc_morettin.Rdata&quot;</span>)</span>
 <span id="cb219-2"><a href="#cb219-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dados)</span>
 <span id="cb219-3"><a href="#cb219-3" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dados)</span></code></pre></div>
@@ -1306,12 +1306,14 @@ div.tocify {
 <div id="importação-de-dados-em-arquivos-.txt" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> importação de dados em arquivos .txt</h2>
 <p>Para importar arquivos no formato <strong>txt</strong>, use o comando <code>read.table()</code>. Caso o arquivo tenha o nome das variável na primeira linha, acrescente o argumento <code>header=TRUE</code>, uma vez que o <em>default</em> é <code>FALSE</code>. Se o separador de decimais for a vírgula, não o ponto, como no padrão americano, deve-se acrescentar argumento <code>dec=&quot;,&quot;</code>.</p>
+<p>A seguir são importados os dados do arquivo <strong>notas_AB.txt</strong>](dados/notas_AB.txt):</p>
 <div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="#cb220-1" aria-hidden="true" tabindex="-1"></a>dados<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;notas_AB.txt&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">dec=</span><span class="st">&quot;,&quot;</span>)  <span class="co"># ler dados em txt</span></span>
 <span id="cb220-2"><a href="#cb220-2" aria-hidden="true" tabindex="-1"></a>dados</span></code></pre></div>
 </div>
 <div id="importação-de-dados-em-arquivos-.csv" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> importação de dados em arquivos .csv</h2>
 <p>Para importar arquivos no formato <strong>csv</strong> (<em>comma-separated values</em>), use o comando <code>read.csv()</code>. Caso o arquivo tenha os nomes das variável na primeira linha, não precisa acrescentar o argumento <code>header=TRUE</code>, já que esse é o <em>default</em>. Se o seperador de decimais for a vírgula, e não o ponto, como no padrão americano, deve-se acrescentar argumento <code>dec=&quot;,&quot;</code>.</p>
+<p>A seguir são importados os dados do arquivo <a href="dados/notas_AB.csv"><strong>notas_AB.csv</strong></a>:</p>
 <div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="#cb221-1" aria-hidden="true" tabindex="-1"></a>dados<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;notas_AB.csv&quot;</span>, <span class="at">dec=</span><span class="st">&quot;,&quot;</span>) <span class="co"># ler dados em csv</span></span>
 <span id="cb221-2"><a href="#cb221-2" aria-hidden="true" tabindex="-1"></a>dados</span></code></pre></div>
 </div>
@@ -1337,7 +1339,7 @@ div.tocify {
 <span id="cb223-4"><a href="#cb223-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb223-5"><a href="#cb223-5" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;cem.R&quot;</span>)                <span class="co"># carrega o arquivo</span></span>
 <span id="cb223-6"><a href="#cb223-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dump</span>(<span class="at">list=</span><span class="fu">objects</span>(), <span class="at">file =</span><span class="st">&quot;all.R&quot;</span>) <span class="co"># todos os objetos</span></span></code></pre></div>
-<p>Uma utilidade interessante do comando <code>dump()</code> é a chamada de funções, que são sequências de instruções, criadas no R. Vamos chamar uma função simples, <code>minhaFuncao.R</code> que conta os quantidade de elementos num vetor e calcular a média.</p>
+<p>Uma utilidade interessante do comando <code>dump()</code> é a chamada de funções, que são sequências de instruções, criadas no R. Vamos chamar uma função simples, A seguir são importados os dados do arquivo <a href="minhaFuncao.R"><strong>minhaFuncao.R</strong></a>: que conta os quantidade de elementos num vetor e calcular a média.</p>
 <div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="#cb224-1" aria-hidden="true" tabindex="-1"></a>umvetor<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>)</span>
 <span id="cb224-2"><a href="#cb224-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;minhaFuncao.R&quot;</span>)</span>
 <span id="cb224-3"><a href="#cb224-3" aria-hidden="true" tabindex="-1"></a><span class="fu">minhaFuncao</span>(umvetor)</span></code></pre></div>
@@ -1392,12 +1394,12 @@ div.tocify {
 <h2><span class="header-section-number">4.10</span> Exercícios de importação e exportação de dados</h2>
 <ol style="list-style-type: decimal">
 <li>Importe os dados no arquivo notas_AB.txt.</li>
-<li>Importe os dados dos ensaios de vida útil de baterias contidos na aba <strong>bateria</strong> do arquivo <strong>dadosPPE1.xlsx</strong>. não deixe de importar o rótulo da coluna.</li>
+<li>Importe os dados dos ensaios de vida útil de baterias contidos na aba <strong>bateria</strong> do arquivo <a href="dados/dadosPPE1.xlsx"><strong>dadosPPE1.xlsx</strong></a>. não deixe de importar o rótulo da coluna.</li>
 <li>Salve os dados importados na questão anterior no formato <strong>.RData</strong> com o nome <strong>bateria.RData</strong> em sua área de trabalho.</li>
 <li>Importe os dados da força de ruptura em libras por polegada quadrada para 100 garrafas descartáveis de 1 litro de refrigerante contidas na aba <strong>forca</strong> do arquivo <strong>dadosPPE1.xlsx</strong>. não deixe de importar o rótulo da coluna.</li>
 <li>Salve os dados importados na questão anterior no formato <strong>.R</strong> com o nome <strong>dadosForca.R</strong> em sua área de trabalho, utilizando o comando <code>dump()</code>.</li>
 <li>Há algum outro comando que poderia realizar a questão anterior além do comando <code>dump()</code>? Qual?</li>
-<li>Importe os dados no arquivo <strong>cimento.Rdata</strong></li>
+<li>Importe os dados no arquivo <a href="dados/cimento.Rdata"><strong>cimento.Rdata</strong></a></li>
 </ol>
 </div>
 </div>
