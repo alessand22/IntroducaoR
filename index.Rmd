@@ -881,7 +881,7 @@ Deve-se ter o cuidado para não haver espaços nos dados alfanuméricos, por exe
 
 
 ## importação de dados no formato R: load
-Para importar dados do R com as extensões **.R**, **.rda** ou **.Rdata**, basta utilizar o comando `load()`. Por exemplo para importar os dados do arquivo "desc_morettin.Rdata".
+Para importar dados do R com as extensões **.R**, **.rda** ou **.Rdata**, basta utilizar o comando `load()`. Por exemplo para importar os dados do arquivo [ **desc_morettin.Rdata**](dados/desc_morettin.Rdata).
 
 ```{r, eval=FALSE}
 load("desc_morettin.Rdata")
@@ -897,6 +897,8 @@ No exemplo, os arquivo está no diretório de trabalho, cado esteja noutro diret
 ## importação de dados em arquivos .txt
 Para importar arquivos no formato **txt**, use o comando `read.table()`. Caso o arquivo tenha o nome das variável na primeira linha, acrescente o argumento `header=TRUE`, uma vez que o *default* é `FALSE`. Se o separador de decimais for a vírgula, não o ponto, como no padrão americano, deve-se acrescentar argumento `dec=","`.
 
+A seguir são importados os dados do arquivo **notas_AB.txt**](dados/notas_AB.txt):
+
 
 ```{r, eval=FALSE}
 dados<-read.table("notas_AB.txt", header=TRUE, dec=",")  # ler dados em txt
@@ -905,6 +907,8 @@ dados
 
 ## importação de dados em arquivos .csv
 Para importar arquivos no formato **csv** (*comma-separated values*), use o comando `read.csv()`. Caso o arquivo tenha os nomes das variável na primeira linha, não precisa acrescentar o argumento `header=TRUE`, já que esse é o *default*. Se o seperador de decimais for a vírgula, e não o ponto, como no padrão americano, deve-se acrescentar argumento `dec=","`.
+
+A seguir são importados os dados do arquivo **notas_AB.csv**](dados/notas_AB.csv):
 
 ```{r, eval=FALSE}
 dados<-read.csv("notas_AB.csv", dec=",") # ler dados em csv
@@ -941,7 +945,7 @@ source("cem.R")                # carrega o arquivo
 dump(list=objects(), file ="all.R") # todos os objetos
 ```
 
-Uma utilidade interessante do comando `dump()` é a chamada de funções, que são sequências de instruções, criadas no R. Vamos chamar uma função simples, `minhaFuncao.R` que conta os quantidade de elementos num vetor e calcular a média.
+Uma utilidade interessante do comando `dump()` é a chamada de funções, que são sequências de instruções, criadas no R. Vamos chamar uma função simples, A seguir são importados os dados do arquivo [**minhaFuncao.R**](minhaFuncao.R): que conta os quantidade de elementos num vetor e calcular a média.
 
 ```{r}
 umvetor<-c(5,7,9)
@@ -982,9 +986,6 @@ Interessante é visualizar as exportações na área de trabalho. Procure e abra
 
 ## Exportando outputs
 
-
-
-
 ## Exportanto outputs para TXT
 Pode ser interessante exportar os resultados cálculos e testes para .TXT para visualização ou exportação posterior. O comando `sink()` direcionada o output para o arquivo com nome determinado
 
@@ -1017,12 +1018,12 @@ options(OutDec= ".")  # restore default
 ## Exercícios de importação e exportação de dados
 
 1. Importe os dados no arquivo notas_AB.txt.
-2. Importe os dados dos ensaios de vida útil de baterias contidos na aba **bateria** do arquivo **dadosPPE1.xlsx**. não deixe de importar o rótulo da coluna.
+2. Importe os dados dos ensaios de vida útil de baterias contidos na aba **bateria** do arquivo  [**dadosPPE1.xlsx**](dados/dadosPPE1.xlsx). não deixe de importar o rótulo da coluna.
 3. Salve os dados importados na questão anterior no formato **.RData** com o nome **bateria.RData** em sua área de trabalho.
 4. Importe os dados da força de ruptura em libras por polegada quadrada para 100 garrafas descartáveis de 1 litro de refrigerante contidas na aba **forca** do arquivo **dadosPPE1.xlsx**. não deixe de importar o rótulo da coluna.
 5. Salve os dados importados na questão anterior no formato **.R** com o nome **dadosForca.R** em sua área de trabalho, utilizando o comando `dump()`.
 6. Há algum outro comando que poderia realizar a questão anterior além do comando `dump()`? Qual?
-7. Importe os dados no arquivo **cimento.Rdata**
+7. Importe os dados no arquivo [**cimento.Rdata**](dados/cimento.Rdata)
 
 
 # Gráficos
