@@ -2928,7 +2928,7 @@ extensao <strong>.R</strong> os quais podem ser lidos pelo comando
 <span id="cb220-5"><a href="#cb220-5" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;cem.R&quot;</span>)                <span class="co"># carrega o arquivo</span></span>
 <span id="cb220-6"><a href="#cb220-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dump</span>(<span class="at">list=</span><span class="fu">objects</span>(), <span class="at">file =</span><span class="st">&quot;all.R&quot;</span>) <span class="co"># todos os objetos</span></span></code></pre></div>
 <p>Uma utilidade interessante do comando <code>dump()</code> é a chamada
-de funções, que são sequências de instruções, criadas no R. O usuário
+de funções, que são sequências de instruções criadas no R. O usuário
 pode criar uma função e salvar o script para automatizar alguma
 rotina.</p>
 <p>Vamos chamar uma função simples criada para contar a quantidade de
@@ -2960,10 +2960,10 @@ determina o tipo de separador de dados, cujo padrão é
 <code>sep = &quot;,&quot;</code>. O argumento <code>dec=&quot;.&quot;</code> determina o
 separador de decimal que é o padrão, podendo ser alterado para
 vírgula.</p>
-<p>Os camandos <code>write.csv</code> e <code>write.csv2</code>
-exportaram diretamente para o formato <strong>.CSV</strong>. Enquanto
+<p>Os comandos <code>write.csv</code> e <code>write.csv2</code> exportam
+diretamente para o formato <strong>.CSV</strong>. Enquanto
 <code>write.csv</code> utiliza o “.” como separador decimal e a vígula
-como separador de colunas, o comando <code>write.csv2</code> usa a
+como separador de colunas. O comando <code>write.csv2</code> usa a
 vírgula como separdor decimal e o ponto e vírgula para separação de
 colunas, tornando mais fácil a exportaçãoo para planilhas de cálculo
 como o Excel.</p>
@@ -3007,11 +3007,11 @@ melhor visualização na padrão brasileiro.</p>
 <span id="cb225-8"><a href="#cb225-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb225-9"><a href="#cb225-9" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">OutDec=</span> <span class="st">&quot;.&quot;</span>)  <span class="co"># restore default</span></span></code></pre></div>
 <p>O argumento <code>append = F</code> determina que um eventual arquivo
-anteriormente existente seja substituído. Caso o usuário deseje que os
+craido anteriormente seja substituído. Caso o usuário deseje que os
 resultados sejam acrescentados em seguência no mesmo arquivo, deve optar
 por <code>append = T</code>. No exemplo a seguir, o mesmo resultado é
-acrescentado ao arquivo meuResumo.txt sem apagar o anterior, o que
-permite gerar um arquivos com diversos resultados.</p>
+acrescentado ao arquivo <strong>meuResumo.txt</strong> sem apagar o
+anterior, o que permite gerar um arquivos com diversos resultados.</p>
 <div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sink</span>(<span class="st">&quot;meuResumo.txt&quot;</span>, <span class="at">append =</span> T, <span class="at">split =</span> T)</span>
 <span id="cb226-2"><a href="#cb226-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">OutDec=</span> <span class="st">&quot;,&quot;</span>)</span>
 <span id="cb226-3"><a href="#cb226-3" aria-hidden="true" tabindex="-1"></a>resumo</span>
@@ -3037,8 +3037,8 @@ não deixe de importar o rótulo da coluna.</li>
 <li>Salve os dados importados na questão anterior no formato
 <strong>.R</strong> com o nome <strong>dadosForca.R</strong> em sua área
 de trabalho, utilizando o comando <code>dump()</code>.</li>
-<li>Há algum outro comando que poderia realizar a questão anterior além
-do comando <code>dump()</code>? Qual?</li>
+<li>Há algum outro comando que poderia realizar a terefa da questão
+anterior além do comando <code>dump()</code>? Qual?</li>
 <li>Importe os dados no arquivo <a href="dados/cimento.Rdata"><strong>cimento.Rdata</strong></a></li>
 </ol>
 </div>
@@ -3046,16 +3046,16 @@ do comando <code>dump()</code>? Qual?</li>
 <div id="gráficos" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Gráficos</h1>
 <p>O R possui poderosos e vastos recursos Gráficos que possibilitam
-incontáveis variações e possibilidades de análise de dados. Nesta seção
-será demonstrado os procedimentos básicos para elaboração de gráficos;
+incontáveis variações e possibilidades de análise de dados. Nesta seção,
+serão demonstrados os procedimentos básicos para elaboração de gráficos;
 todavia, há pacotes adicionais, como o <code>ggplot2</code> capazes de
-aumentar a capacidade de elaboração gráfica; todavia, o
-<code>ggplot2</code> será apresentado numa outra seção.</p>
+aumentar a capacidade de elaboração gráfica. O <code>ggplot2</code> será
+apresentado numa outra seção.</p>
 <div id="comando-plot" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Comando plot</h2>
 <p>O comando <code>plot(x,y,...)</code> pode criar gráficos a partir de
 uma única série de dados ou da combinação de dois conjuntos no forma de
-coordenadas x-y. A seguir são exemplificas os dois exemplos.</p>
+coordenadas x-y. A seguir, são exemplificados as duas situações.</p>
 <div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="#cb227-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">20</span>, <span class="at">by=</span><span class="dv">2</span>) <span class="co"># uma serie de dados</span></span>
 <span id="cb227-2"><a href="#cb227-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x) <span class="co"># somente x</span></span></code></pre></div>
 <figure>
@@ -3100,7 +3100,7 @@ Tipos de linhas do plot
 <div id="tipos-de-linhas-type" class="section level3" number="5.1.1">
 <h3><span class="header-section-number">5.1.1</span> Tipos de linhas
 (<em>type</em>)</h3>
-<p>Há seis tipos de linhas (<code>type=&quot;l&quot;</code>) disponíveis
+<p>Há seis tipos de linhas (<code>type=&quot;l&quot;</code>) disponíveis e
 configuráveis pelo argumento <code>lty</code> listadas a seguir.</p>
 <figure>
 <figcaption>
@@ -3114,7 +3114,7 @@ configuráveis pelo argumento <code>lty</code> listadas a seguir.</p>
 <p>Com o argumento <code>pch</code>, pode selecionar o tipo de ponto a
 ser utilizado, simplesmente indicnado o número correspondente ou símbolo
 desejado. A seguir são exidos os números dos símbolos básicos e alguns
-adicionais. Para especificar a cor, dos símbolos de 1 a 20, basta usat o
+adicionais. Para especificar a cor, dos símbolos de 1 a 20, basta usar o
 argumento, <code>col=</code>, todavia, de 21 a 25, o argumento
 <code>col=</code> especifica a cor da borda e <code>bg=</code> a cor do
 preenchimento.</p>
@@ -3199,15 +3199,15 @@ preenchimento.</p>
 <div id="mais-de-um-conjunto-de-dados-no-mesmo-gráfico" class="section level3" number="5.1.3">
 <h3><span class="header-section-number">5.1.3</span> Mais de um conjunto
 de dados no mesmo gráfico</h3>
-<p>É possível plotar mais uma linha no mesmo Gráfico. No exemplo a
+<p>É possível plotar mais uma linha no mesmo gráfico. No exemplo a
 seguir, dois conjuntos de dados gerados aleatoriamente com o comando
-<code>runif()</code> são plotados no mesmo Gráfico. O comando
+<code>runif()</code> e são plotados no mesmo gráfico. O comando
 <code>set.seet()</code> gera uma semente que força os resultados
 “aleatórios” serem iguais aos aqui demonstrados; caso contrário, os
 resultaos gerados por <code>runif()</code> serão diferentes. O argumento
 <code>ann=F</code> suprime os rótulos dos títulos e eixos e
-<code>axes=F</code> suprime as marcas (<em>tick marks</em>) de x e y do
-segundo Gráfico.</p>
+<code>axes=F</code> suprime as marcas (<em>tick marks</em>) dos eixos de
+x e y do segundo gráfico.</p>
 <div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">652</span>) <span class="co"># semente</span></span>
 <span id="cb232-2"><a href="#cb232-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">runif</span>(<span class="dv">15</span>),<span class="at">type=</span><span class="st">&quot;o&quot;</span>,<span class="at">ann=</span>F,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">20</span>),<span class="at">col=</span><span class="dv">4</span>)</span>
 <span id="cb232-3"><a href="#cb232-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span>T)</span>
@@ -3255,8 +3255,8 @@ segundo Gráfico.</p>
 <div id="componentes-gráficos-adicionais" class="section level3" number="5.1.4">
 <h3><span class="header-section-number">5.1.4</span> Componentes
 Gráficos adicionais</h3>
-<p>Diversos componentespode ser acrescentados aos gráficos em geral,
-como linhas, objetos setas e textos. No quadro a seguir, listam-se os
+<p>Diversos componentes podem ser acrescentados aos gráficos em geral,
+como linhas, objetos, setas e textos. No quadro abaixo, listam-se os
 principais.</p>
 <table>
 <colgroup>
@@ -3311,9 +3311,9 @@ principais.</p>
 </tbody>
 </table>
 <p>Os argumentos opcionais definem cores, tamanho e outras
-características dos elementos adicionados.</p>
-<p>Esses componentes podem ser demonstrados num gráfico em que são
-acrescentados livremente apenas para demonstração.</p>
+características dos elementos adicionados. Esses componentes podem ser
+demonstrados num gráfico em que são acrescentados livremente apenas para
+demonstração.</p>
 <div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="#cb233-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)<span class="sc">^</span><span class="dv">2</span></span>
 <span id="cb233-2"><a href="#cb233-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type=</span><span class="st">&quot;l&quot;</span>)</span>
 <span id="cb233-3"><a href="#cb233-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">rev</span>(x),<span class="at">col=</span><span class="dv">2</span>)</span>
@@ -3454,8 +3454,8 @@ cores</h2>
 (Barplot)</h2>
 <p>O comando <code>barplot()</code> lê dados de vetores, com ou sem nome
 dos dados; de modo que basta criar um vetor com o comando
-<code>c()</code>. É possível deixar o Gráfico sem rótulos das colunas,
-como no Gráfico da esquerda, ou acrescentar com o argumento
+<code>c()</code>. É possível deixar o gráfico sem rótulos das colunas,
+como no gráfico da esquerda, ou acrescentar com o argumento
 <code>names.arg</code>.</p>
 <div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="co"># divide a janela gráfica 2 linhas e 2 colunas</span></span>
 <span id="cb242-2"><a href="#cb242-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -3478,8 +3478,8 @@ inseridos.</p>
 </figcaption>
 <img src="data:image/png;base64,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CiiEN/PdmG6z6G5o6zMpoBCegEYloBDevK3f/SDnydlr//V0c/KX7f/+fclT8a3PpIBCeBO3fvfuS3devx2TJ5GWElAIb+rW/2N7t/O/7f9RQJcSUAhv7ta/uPf6PUEFdCkBhfAmb/3l/371JnYCupSAQnjTt/759k7oJ78K6GICCuHN3/rLb7d3Qh8I6FICCuG9j63fvaDpL6cCuoyAQnjvZet3L2ha+Br6l1qfSQGF8N7T1v/jVEAXElAI731t/Yv/seyHkF5qfSYFFMILvfWtz6SAQniht771mRRQCC/01rc+kwIK4YXe+tZnUkAhvNBb3/pMCiiEF3rrW59JAYXwQm996zMpoBBe6K1vfSYFFMILvfWtz6SAQniht771mRRQCC/01rc+kwIK4YXe+tZnUkAhvNBb3/pMCiiEF3rrW59JAYXwQm996zMpoBBe6K1vfSYFFMILvfWtz6SAQniht771mRRQCC/01rc+kwIK4YXe+tZnUkAhvNBb3/pMCiiEF3rrW59JAYXwQm996zMpoBBe6K1vfSYFFMILvfWtz6SAQniht771mRRQCC/01rc+kwIK4YXe+tZnUkAhvNBb3/pMCiiEF3rrW59JAYXwQm996zMpoBBe6K1vfSYFFMILvfWtz6SAQniht771mRRQCC/01rc+kwIK4YXe+tZnUkAhvNBb3/pMCiiEF3rrW59JAYXwQm996zMpoBBe6K1vfSYFFMILvfWtz6SAQniht771mRRQCC/01rc+kwIK4YXe+tZnUkAhvNBb3/pMCiiEF3rrW59JAYXwQm996zMpoBBe6K1vfSYFFMILvfWtz6SAQniht771mRRQCC/01rc+kwIK4YXe+tZnUkAhvNBb3/pMCiiEF3rrW59JAYXwQm996zMpoBBe6K1vfSYFFMILvfWtz6SAQniht771mRRQCC/01rc+kwIK4YXe+tZnUkAhvNBb3/pMCiiEF3rrW59JAYXwQm996zMpoBBe6K1vfSYFFMILvfWtz6SAQniht771mRRQCC/01rc+kwIK4YXe+tZnUkAhvNBb3/pMCiiEF3rrW59JAYXwQm996zMpoBBe6K1vfSYFFMILvfWtz6SAQniht771mRRQCC/01rc+kwIK4YXe+tZnUkAhvNBb3/pMCiiEF3rrW59JAYXwQm996zMpoBBe6K1vfSYFFMILvfWt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">
 </figure>
-<p>O <code>barplot</code> faz uma parceria muito útil com tabelas como
-no exemplo a seguir criadas com o comando <code>table()</code> e
+<p>O <code>barplot</code> faz uma parceria muito útil com as tabelas
+como no exemplo a seguir criadas com o comando <code>table()</code> e
 preenchidas com o argumento <code>density =</code>:</p>
 <div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="#cb245-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">table</span>(<span class="fu">rep</span>(<span class="fu">c</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]), <span class="fu">c</span>(<span class="dv">15</span>,<span class="dv">48</span>,<span class="dv">24</span>,<span class="dv">13</span>,<span class="dv">20</span>)))</span>
 <span id="cb245-2"><a href="#cb245-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
@@ -3585,16 +3585,16 @@ ser azul.</p>
 <div id="configurações-dos-parâmetros-gráficos" class="section level3" number="5.3.5">
 <h3><span class="header-section-number">5.3.5</span> configurações dos
 parâmetros gráficos</h3>
-<p>Há duas maneiras de alterar os parâmetros gráficos. A primeira, é
+<p>Há duas maneiras de alterar os parâmetros gráficos. A primeira é
 usado os argumentos das funções gráficas <code>barplot()</code>,
 <code>plot()</code> ou <code>hist()</code>, e a segunda é por meio da
 função <code>par()</code>. Alguns parâmetros são podem ser alteradas
 diretamente na função que cria o Gráfico, como os rótulos dos eixos
 (<code>xlab</code>), outras somente podem ser alteradas por meio do
 <code>par()</code>, como as margens de plotagem. A seguir, demonstra-se
-como alterar a cor de fundo de um Gráfico.</p>
+como alterar a cor de fundo de um gráfico.</p>
 <p>Para exibir e alterar as configurações padrões (<em>default</em>)
-para os Gráficos, deve usar o comando <code>par()</code>. Para exibir as
+para os gráficos, deve usar o comando <code>par()</code>. Para exibir as
 configurações das cores de fundo (<em>background</em>), basta digitar
 <code>par(&quot;bg&quot;)</code>.</p>
 <div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>() <span class="co"># Exibe as configurações gráficas</span></span>

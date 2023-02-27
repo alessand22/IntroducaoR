@@ -945,7 +945,7 @@ source("cem.R")                # carrega o arquivo
 dump(list=objects(), file ="all.R") # todos os objetos
 ```
 
-Uma utilidade interessante do comando `dump()` é a chamada de funções, que são sequências de instruções, criadas no R. O usuário pode criar uma função e salvar o script para automatizar alguma rotina.
+Uma utilidade interessante do comando `dump()` é a chamada de funções, que são sequências de instruções criadas no R. O usuário pode criar uma função e salvar o script para automatizar alguma rotina.
 
 Vamos chamar uma função simples criada para contar a quantidade de elementos num vetor e calcular a média. Denominamos essa função de [**minhaFuncao.R**](minhaFuncao.R). A seguir, o exemplo:
 
@@ -971,7 +971,7 @@ minhaFuncao<-function(x)
 
 O comando `write.table()` permite a exportação de dados para vários formatos de arquivos. O argumento `sep =` determina o tipo de separador de dados, cujo padrão é `sep = " "`. Para dados separados por tabulações, o argumento é `sep = "\t"`. Já para dados separados por vírgulas, `sep = ","`. O argumento `dec="."` determina o separador de decimal que é o padrão, podendo ser alterado para vírgula.
 
-Os camandos `write.csv` e `write.csv2` exportaram diretamente para o formato **.CSV**. Enquanto `write.csv` utiliza o "." como separador decimal e a vígula como separador de colunas, o comando `write.csv2` usa a vírgula como separdor decimal e o ponto e vírgula para separação de colunas, tornando mais fácil a exportaçãoo para planilhas de cálculo como o Excel.
+Os comandos `write.csv` e `write.csv2` exportam diretamente para o formato **.CSV**. Enquanto `write.csv` utiliza o "." como separador decimal e a vígula como separador de colunas. O comando `write.csv2` usa a vírgula como separdor decimal e o ponto e vírgula para separação de colunas, tornando mais fácil a exportaçãoo para planilhas de cálculo como o Excel.
 
 Por *default*, `write.table()`, `write.cvs()` e `write.cvs2()` criam uma coluna extra com a indicação no número de observação dos dados. Para evitar a criação dessa coluna extra, deve-se ajustar o argumento `row.names=F`.
 
@@ -1005,7 +1005,7 @@ sink() # encerra salvamento
 options(OutDec= ".")  # restore default
 ```
 
-O argumento `append = F` determina que um eventual arquivo anteriormente existente seja substituído. Caso o usuário deseje que os resultados sejam acrescentados em seguência no mesmo arquivo, deve optar por `append = T`. No exemplo a seguir, o mesmo resultado é acrescentado ao arquivo meuResumo.txt sem apagar o anterior, o que permite gerar um arquivos com diversos resultados.
+O argumento `append = F` determina que um eventual arquivo craido anteriormente seja substituído. Caso o usuário deseje que os resultados sejam acrescentados em seguência no mesmo arquivo, deve optar por `append = T`. No exemplo a seguir, o mesmo resultado é acrescentado ao arquivo **meuResumo.txt** sem apagar o anterior, o que permite gerar um arquivos com diversos resultados.
 
 ```{r, eval=FALSE}
 sink("meuResumo.txt", append = T, split = T)
@@ -1024,17 +1024,17 @@ options(OutDec= ".")  # restore default
 3. Salve os dados importados na questão anterior no formato **.RData** com o nome **bateria.RData** em sua área de trabalho.
 4. Importe os dados da força de ruptura em libras por polegada quadrada para 100 garrafas descartáveis de 1 litro de refrigerante contidas na aba **forca** do arquivo **dadosPPE1.xlsx**. não deixe de importar o rótulo da coluna.
 5. Salve os dados importados na questão anterior no formato **.R** com o nome **dadosForca.R** em sua área de trabalho, utilizando o comando `dump()`.
-6. Há algum outro comando que poderia realizar a questão anterior além do comando `dump()`? Qual?
+6. Há algum outro comando que poderia realizar a terefa da questão anterior além do comando `dump()`? Qual?
 7. Importe os dados no arquivo [**cimento.Rdata**](dados/cimento.Rdata)
 
 
 # Gráficos
 
-O R possui poderosos e vastos recursos Gráficos que possibilitam incontáveis variações e possibilidades de análise de dados. Nesta seção será demonstrado os procedimentos básicos para elaboração de gráficos; todavia, há pacotes adicionais, como o `ggplot2` capazes de aumentar a capacidade de elaboração gráfica; todavia, o `ggplot2` será apresentado numa outra seção.
+O R possui poderosos e vastos recursos Gráficos que possibilitam incontáveis variações e possibilidades de análise de dados. Nesta seção, serão demonstrados os procedimentos básicos para elaboração de gráficos; todavia, há pacotes adicionais, como o `ggplot2` capazes de aumentar a capacidade de elaboração gráfica. O `ggplot2` será apresentado numa outra seção.
 
 ## Comando plot
 
-O comando `plot(x,y,...)` pode criar gráficos a partir de uma única série de dados ou da combinação de dois conjuntos no forma de coordenadas x-y. A seguir são exemplificas os dois exemplos.
+O comando `plot(x,y,...)` pode criar gráficos a partir de uma única série de dados ou da combinação de dois conjuntos no forma de coordenadas x-y. A seguir, são exemplificados as duas situações.
 
 
 ```{r}
@@ -1071,7 +1071,7 @@ for(i in 1:length(opts)){
 
 ### Tipos de linhas (*type*) 
 
-Há seis tipos de linhas (`type="l"`) disponíveis configuráveis pelo argumento `lty` listadas a seguir.
+Há seis tipos de linhas (`type="l"`) disponíveis e configuráveis pelo argumento `lty` listadas a seguir.
 
 
 ```{r, echo=FALSE, out.width = "60%"}
@@ -1091,7 +1091,7 @@ generateRLineTypes()
 
 ### Tipos de pontos (*pch*)
 
-Com o argumento `pch`, pode selecionar o tipo de ponto a ser utilizado, simplesmente indicnado o número correspondente ou símbolo desejado. A seguir são exidos os números dos símbolos básicos e alguns adicionais. Para especificar a cor, dos símbolos de 1 a 20, basta usat o argumento, `col=`, todavia, de 21 a 25, o argumento `col=` especifica a cor da borda e `bg=` a cor do preenchimento.
+Com o argumento `pch`, pode selecionar o tipo de ponto a ser utilizado, simplesmente indicnado o número correspondente ou símbolo desejado. A seguir são exidos os números dos símbolos básicos e alguns adicionais. Para especificar a cor, dos símbolos de 1 a 20, basta usar o argumento, `col=`, todavia, de 21 a 25, o argumento `col=` especifica a cor da borda e `bg=` a cor do preenchimento.
 
 ```{r, echo=FALSE}
 generateRPointShapes<-function(){
@@ -1136,7 +1136,7 @@ plot(x, y, xlab= "Dez números quaisquer", ylab= "Outros dez números", main= "G
 
 ### Mais de um conjunto de dados no mesmo gráfico
 
-É possível plotar mais uma linha no mesmo Gráfico. No exemplo a seguir, dois conjuntos de dados gerados aleatoriamente com o comando `runif()` são plotados no mesmo Gráfico. O comando `set.seet()` gera uma semente que força os resultados "aleatórios" serem iguais aos aqui demonstrados; caso contrário, os resultaos gerados por `runif()` serão diferentes. O argumento `ann=F` suprime os rótulos dos títulos e eixos e `axes=F` suprime as marcas (*tick marks*) de x e y do segundo Gráfico.
+É possível plotar mais uma linha no mesmo gráfico. No exemplo a seguir, dois conjuntos de dados gerados aleatoriamente com o comando `runif()` e são plotados no mesmo gráfico. O comando `set.seet()` gera uma semente que força os resultados "aleatórios" serem iguais aos aqui demonstrados; caso contrário, os resultaos gerados por `runif()` serão diferentes. O argumento `ann=F` suprime os rótulos dos títulos e eixos e `axes=F` suprime as marcas (*tick marks*) dos eixos de x e y do segundo gráfico.
 
 ```{r}
 set.seed(652) # semente
@@ -1160,7 +1160,7 @@ A seguir são apresentados outros componentes adicionais.
 
 ### Componentes Gráficos adicionais
 
-Diversos componentespode ser acrescentados aos gráficos em geral, como linhas, objetos setas e textos. No quadro a seguir, listam-se os principais.  
+Diversos componentes podem ser acrescentados aos gráficos em geral, como linhas, objetos, setas e textos. No quadro abaixo, listam-se os principais.  
 
 |Comando|Descrição|
 |---|-----------------------------------------------------------------------|
@@ -1174,9 +1174,7 @@ Diversos componentespode ser acrescentados aos gráficos em geral, como linhas, 
 |`symbols(x,y, ...)`|desenha quadrados, círculos, etc.|
 |`legend(x,y,legend=, ...)`|adiciona uma legenda|
 
-Os argumentos opcionais definem cores, tamanho e outras características dos elementos adicionados.
-
-Esses componentes podem ser demonstrados num gráfico em que são acrescentados livremente apenas para demonstração.
+Os argumentos opcionais definem cores, tamanho e outras características dos elementos adicionados. Esses componentes podem ser demonstrados num gráfico em que são acrescentados livremente apenas para demonstração.
 
 ```{r}
 x<-(1:10)^2
@@ -1256,7 +1254,7 @@ title("Cores com o uso do gray.colors e\n círculos médios")
 
 ## Gráfico de barras (Barplot)
 
-O comando `barplot()` lê dados de vetores, com ou sem nome dos dados; de modo que basta criar um vetor com o comando `c()`. É possível deixar o Gráfico sem rótulos das colunas, como no Gráfico da esquerda, ou acrescentar com o argumento `names.arg`.
+O comando `barplot()` lê dados de vetores, com ou sem nome dos dados; de modo que basta criar um vetor com o comando `c()`. É possível deixar o gráfico sem rótulos das colunas, como no gráfico da esquerda, ou acrescentar com o argumento `names.arg`.
 
 
 ```{r}
@@ -1277,7 +1275,7 @@ names(x)<-LETTERS[1:5]
 barplot(x)
 ```
 
-O `barplot` faz uma parceria muito útil com tabelas como no exemplo a seguir criadas com o comando `table()` e preenchidas com o argumento `density =`:
+O `barplot` faz uma parceria muito útil com as tabelas como no exemplo a seguir criadas com o comando `table()` e preenchidas com o argumento `density =`:
 
 ```{r}
 x<-table(rep(c(LETTERS[1:5]), c(15,48,24,13,20)))
@@ -1357,9 +1355,9 @@ abline(h=0)
 
 ### configurações dos parâmetros gráficos
 
-Há duas maneiras de alterar os parâmetros gráficos. A primeira, é usado os argumentos das funções gráficas `barplot()`, `plot()` ou `hist()`, e a segunda é por meio da função `par()`. Alguns parâmetros são podem ser alteradas diretamente na função que cria o Gráfico, como os rótulos dos eixos (`xlab`), outras somente podem ser alteradas por meio do `par()`, como as margens de plotagem. A seguir, demonstra-se como alterar a cor de fundo de um Gráfico.
+Há duas maneiras de alterar os parâmetros gráficos. A primeira é usado os argumentos das funções gráficas `barplot()`, `plot()` ou `hist()`, e a segunda é por meio da função `par()`. Alguns parâmetros são podem ser alteradas diretamente na função que cria o Gráfico, como os rótulos dos eixos (`xlab`), outras somente podem ser alteradas por meio do `par()`, como as margens de plotagem. A seguir, demonstra-se como alterar a cor de fundo de um gráfico.
 
-Para exibir e alterar as configurações padrões (*default*) para os Gráficos, deve usar o comando `par()`. Para exibir as configurações das cores de fundo (*background*), basta digitar `par("bg")`.
+Para exibir e alterar as configurações padrões (*default*) para os gráficos, deve usar o comando `par()`. Para exibir as configurações das cores de fundo (*background*), basta digitar `par("bg")`.
 
 
 ```{r, eval=FALSE}
