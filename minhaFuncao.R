@@ -2,6 +2,6 @@ minhaFuncao<-function(x)
 {
   n<-length(x)
   media<-mean(x)
-  cat("Número de elementos do vetor: ",n)
-  cat("\nA média do vetor é: ", media)
+  cat("NÃºmero de elementos do vetor: ",n)
+  cat("\nA mÃ©dia do vetor Ã©: ", media)
 }

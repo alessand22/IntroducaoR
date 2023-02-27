@@ -129,7 +129,7 @@ Para exibir os pacotes instalados, digite o seguinte comando no console:
 library()
 ```
 
-No R Studio, para exibir os pacotes instalados, alternativamente, pode-se simplmente clicar na aba **Packages**, no canto inferior esquerdo.
+No R Studio, para exibir os pacotes instalados, alternativamente, pode-se simplesmente clicar na aba **Packages**, no canto inferior esquerdo.
 
 ### Carregando pacotes
 
@@ -139,7 +139,7 @@ Mesmos que os pacotes já estejam instalados, para que seus recursos sejam ativa
 library(nome.do.pacote)
 require(nome.do.pacote)
 ```
-O RStudio oferece uma segunda opção de carregar pacote por meio da aba **Packages**, no canto inferior direto. Clique nessa aba, que exibirá os pacotes instalados, e marque o pacote que deseja carregar.
+O RStudio oferece uma segunda opção de carregar pacote por meio da aba **Packages**, no canto inferior direto. Clique nessa aba que serão exibidos os pacotes instalados e marque o pacote que deseja carregar.
 
 Para "descarregar" um pacote, deigite:
 
@@ -149,9 +149,9 @@ detach(package:nome.do.pacote)
 
 
 ### Instalação de pacotes
-Exitem, no entanto, diversos pacotes para os mais variados fins. Para utilizar os recursos desses pacotes, eles devem ser instalados e, posteriormente, carregados.
+Exitem, no entanto, diversos pacotes para os mais variados fins. Para utilizar os recursos desses pacotes, eles devem ser primeiramente instalados e, posteriormente, carregados.
 
-Os pacotes ficam armazenados em repositórios (*repository*). Os repositórios mais populares são:
+Os pacotes ficam armazenados em repositórios (*repository*), detro os quais, os mais populares são:
 
   - **CRAN** (<https://cran.r-project.org/>) que é o repositário oficial do R, no qual os pacotes, passam por um processo de revisão antes de estarem disponíveis para instalação;
   - **Github**  (<https://github.com/>) que é um repositório popular de projetos *open source* cada vez mais utilizado por desenvolvedores de R. Deve-se apenas ter precaução com os pacotes do Github pelo fato de não passarem por processo de revisão, uma vez que são oferecidos diretamente por seus autores.
@@ -159,11 +159,11 @@ Os pacotes ficam armazenados em repositórios (*repository*). Os repositórios m
 A maior parte dos pacotes do R estão hospedados no CRAN (<http://cran.r-project.org>). Em 15/01/2020, havia 18733 pacotes no CRAN.
 
 
-No RStudio, há três maneiras de instalar pacotes: duas formas de instalar da internet, digitando o comando `install.packages()` (igual no R básico), por meio da aba `Packages` e uma a partir de um arquivo armazenado localmente.
+No RStudio, há três maneiras de instalar pacotes: duas da internet, (a) digitando o comando `install.packages()` (igual no R básico), (b) por meio da aba `Packages` e (c) a partir de um arquivo armazenado localmente.
 
 
-#### Instaçãon de pacotes do CRAN
-A primeira, envolve  a digitação do comando de instalação de um pacote cuja a sítese é a seguinte: 
+#### Instação de pacotes do CRAN
+A primeira, envolve  a digitação do comando de instalação de um pacote cuja sintaxe é a seguinte: 
 
 ```{r, eval=FALSE}
 install.packages("nome.do.pacote")
@@ -503,8 +503,8 @@ x <- 3 + 2i
 x
 class(x)
 sqrt(-1)              # produz erro porque -1 não é complex
-sqrt(−1+0i)           # operação com complexo
-sqrt(as.complex(−1))  # resultado igual
+# sqrt(−1+0i)           # operação com complexo
+# sqrt(as.complex(−1))  # resultado igual
 ```
 
 
@@ -843,13 +843,13 @@ A localização dos dados no arquivo pode ser alterada, na área de opções de 
 
 Para concluir a importação, resta clicar em *Import* que o RStudios cola e executa os comandos no console e exibirá os dados em janela separada se a opção **Open Data Viewer** tiver sido selecionada.
 
-O pacote pomite ainda realizar a importação por meio de código. a sintase da função é:
+O pacote pomite ainda realizar a importação por meio de código. a sintaxe da função é:
 
 ```{r, eval=FALSE}
 read_excel("caminho do arquivo/arquivo.xlsx")
 ```
 
-A seguir são apresentados quatro exemplos, o primeiro supondo que o arquivo do nExcel está no diretório de trabalho, e, potanto, sem a necessidade de escrever cominho; o segundo supondo que o arquivo está num subdiretório do diretório de trabalho; o terceiro com o caminho completo do arquivo e o quarto, supondo que o arquivo esteja no diretório de trabalho, mas evidenciando alguns argumentos, como a posição da aba no Excel, no caso é a primeira (`sheet = 1`), que a primeira linha possui os nomes das variáveis (`col_names = TRUE`) e que os dados ausentes são indicados por céludas vazias (`na = ""`).
+A seguir, são apresentados quatro exemplos, o primeiro supondo que o arquivo do Excel está no diretório de trabalho, e, portanto, sem a necessidade de escrever o cominho; o segundo supondo que o arquivo está num subdiretório do diretório de trabalho; o terceiro com o caminho completo do arquivo; e o quarto, supondo que o arquivo esteja no diretório de trabalho, mas evidenciando alguns argumentos, como a posição da aba no Excel que, no caso, é a primeira (`sheet = 1`), que a primeira linha possui os nomes das variáveis (`col_names = TRUE`) e que os dados ausentes são indicados por células vazias (`na = ""`).
 
 
 ```{r, eval=FALSE}
@@ -877,7 +877,7 @@ Há várias maneiras de importar dados do excel. Para importar dados do Excel vi
 
 Se não selecionar os nomes das variáveis, deve-se ajustar o argumento `header=FALSE`.
 
-Deve-se ter o cuidado para não haver espaços nos dados alfanuméricos, por exemplo, "Universidade Federal", porque o R, entenderá o espaço como quebra de coluna, provocando erro na leitura.
+Deve-se ter o cuidado para não haver espaços nos dados alfanuméricos, por exemplo, "Universidade Federal", porque o R entenderá o espaço como quebra de coluna, provocando erro na leitura.
 
 
 ## importação de dados no formato R: load
@@ -889,9 +889,9 @@ head(dados)
 View(dados)
 ```
 
-Você pode observar o arquivo **.Rdata** é capaz de armazenar diversos objetos que são carregados no ambiente de trabalho. A seção 4.5 trata com mais detalhes esse essunto.
+Você pode observar que o arquivo **.Rdata** é capaz de armazenar diversos objetos que são carregados no ambiente de trabalho. A seção 4.5 trata com mais detalhes esse essunto.
 
-No exemplo, os arquivo está no diretório de trabalho, cado esteja noutro diretório, deve-se incluir o caminho completo no comando `load("C:/usuarios/nome/pasta/desc_morettin.Rdata")`. Um Erro muito comum entre usuários iniciantes é o esquecimento das aspas.
+No exemplo, os arquivo está no diretório de trabalho;  o entanto, caso esteja noutro diretório, deve-se incluir o caminho completo no comando `load("C:/usuarios/nome/pasta/desc_morettin.Rdata")`. Atenção que um erro muito comum entre os usuários iniciantes é o esquecimento das aspas.
 
 
 ## importação de dados em arquivos .txt
@@ -945,7 +945,9 @@ source("cem.R")                # carrega o arquivo
 dump(list=objects(), file ="all.R") # todos os objetos
 ```
 
-Uma utilidade interessante do comando `dump()` é a chamada de funções, que são sequências de instruções, criadas no R. Vamos chamar uma função simples, A seguir são importados os dados do arquivo [**minhaFuncao.R**](minhaFuncao.R): que conta os quantidade de elementos num vetor e calcular a média.
+Uma utilidade interessante do comando `dump()` é a chamada de funções, que são sequências de instruções, criadas no R. O usuário pode criar uma função e salvar o script para automatizar alguma rotina.
+
+Vamos chamar uma função simples criada para contar a quantidade de elementos num vetor e calcular a média. Denominamos essa função de [**minhaFuncao.R**](minhaFuncao.R). A seguir, o exemplo:
 
 ```{r}
 umvetor<-c(5,7,9)
